@@ -305,6 +305,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="SPA\app\components\pages\" />
+    <Folder Include="SPA\app\components\ui\" />
+    <Folder Include="SPA\app\servises\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
