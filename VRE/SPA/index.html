@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <!--
+    
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    -->
-    <link href="lib/element/element.css" rel="stylesheet" />
+    
+    <!--<link href="lib/element/element.css" rel="stylesheet" />-->
 </head>
 <body>
     <div id="app">
@@ -17,22 +17,64 @@
         <i class="el-icon-share"></i>
         <i class="el-icon-delete"></i>
         <el-button type="primary" icon="el-icon-search">Search</el-button>
+
+
+        <el-date-picker type="date"
+                        placeholder="дата">
+        </el-date-picker>
+
+        <hr />
+
+        <router-link to="/foo">Go to Foo</router-link>
+        <router-link to="/bar">Go to Bar</router-link>
+        <hr />
+
+        <router-view></router-view>
+
+        <hr />
     </div>
 
-    <!--
+
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-    -->
-    <script src="lib/vue.js"></script>
-    <script src="lib/element/element.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/umd/locale/ru-RU.js"></script>
+
+
 
     <script>
+        ELEMENT.locale(ELEMENT.lang.ruRU);
+
+        const Foo = { template: '<div>foo</div>' }
+        const Bar = { template: '<div>bar</div>' }
+
+        // 2. Define some routes
+        // Each route should map to a component. The "component" can
+        // either be an actual component constructor created via
+        // `Vue.extend()`, or just a component options object.
+        // We'll talk about nested routes later.
+        const routes = [
+            { path: '/foo', component: Foo },
+            { path: '/bar', component: Bar }
+        ]
+
+        // 3. Create the router instance and pass the `routes` option
+        // You can pass in additional options here, but let's
+        // keep it simple for now.
+        const router = new VueRouter({
+            routes // short for `routes: routes`
+        })
+
+
         new Vue({
+            router: router,
             el: '#app',
             data: function () {
                 return { visible: false }
             }
         })
+
+
     </script>
 </body>
 </html>
